@@ -1,0 +1,20 @@
+steps:
+  - name: 'docker'
+    args:
+      - 'buildx'
+      - 'create'
+      - '--name'
+      - 'mybuilder'
+      - '--use'
+  - name: 'docker'
+    args: 
+      - 'buildx'
+      - 'build'
+      - '--platform'
+      - 'linux/arm64,linux/amd64'
+      - '-t'
+      - 'us-docker.pkg.dev/gari-test/cloudonair/ping-demo:$SHORT_SHA'
+      - '-t'
+      - 'us-docker.pkg.dev/gari-test/cloudonair/ping-demo:latest'
+      - '--push'
+      - '.'
