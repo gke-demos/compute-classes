@@ -18,3 +18,10 @@ steps:
       - 'us-docker.pkg.dev/gari-test/cloudonair/ping-demo:latest'
       - '--push'
       - '.'
+  - name: "gcr.io/cloud-builders/gke-deploy"
+    args:
+      - run
+      - --filename=manifests/deployment.yaml
+      - --image=us-docker.pkg.dev/gari-test/cloudonair/ping-demo:$SHORT_SHA
+      - --location=us-central1
+      - --cluster=cloudonair-demo
