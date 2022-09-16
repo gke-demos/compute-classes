@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: tensorflow
+  name: tensorflow-t4
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tensorflow
+  template:
+    metadata:
+      labels:
+        app: tensorflow
+    spec:
+      nodeSelector:
+        cloud.google.com/gke-accelerator: nvidia-tesla-t4
+      containers:
+      - image: tensorflow/tensorflow:latest-gpu-jupyter
+        name: tensorflow-t4
+        resources:
+          limits:
+            nvidia.com/gpu: 4
