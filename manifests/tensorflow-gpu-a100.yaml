@@ -19,6 +19,9 @@ spec:
       containers:
       - image: tensorflow/tensorflow:latest-gpu-jupyter
         name: tensorflow-a100
+        env:
+          - name: JUPYTER_TOKEN
+            value: "jupyter"
         resources:
           limits:
-            nvidia.com/gpu: 4
+            nvidia.com/gpu: "4"

@@ -21,4 +21,4 @@ spec:
         name: tensorflow-t4
         resources:
           limits:
-            nvidia.com/gpu: 4
+            nvidia.com/gpu: "4"

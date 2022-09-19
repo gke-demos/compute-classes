@@ -21,7 +21,28 @@ steps:
   - name: "gcr.io/cloud-builders/gke-deploy"
     args:
       - run
-      - --filename=manifests/deployment.yaml
+      - --filename=manifests/ping-demo-default.yaml
+      - --image=us-docker.pkg.dev/gari-test/cloudonair/ping-demo:$SHORT_SHA
+      - --location=us-central1
+      - --cluster=cloudonair-demo
+  - name: "gcr.io/cloud-builders/gke-deploy"
+    args:
+      - run
+      - --filename=manifests/ping-demo-balanced.yaml
+      - --image=us-docker.pkg.dev/gari-test/cloudonair/ping-demo:$SHORT_SHA
+      - --location=us-central1
+      - --cluster=cloudonair-demo
+  - name: "gcr.io/cloud-builders/gke-deploy"
+    args:
+      - run
+      - --filename=manifests/ping-demo-scale-out-amd64.yaml
+      - --image=us-docker.pkg.dev/gari-test/cloudonair/ping-demo:$SHORT_SHA
+      - --location=us-central1
+      - --cluster=cloudonair-demo
+  - name: "gcr.io/cloud-builders/gke-deploy"
+    args:
+      - run
+      - --filename=manifests/ping-demo-scale-out-arm.yaml
       - --image=us-docker.pkg.dev/gari-test/cloudonair/ping-demo:$SHORT_SHA
       - --location=us-central1
       - --cluster=cloudonair-demo
