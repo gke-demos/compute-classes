@@ -47,5 +47,5 @@ steps:
       - --cluster=${_CLUSTER_NAME}
       - --location=$LOCATION
 substitutions:
-  _CLUSTER_NAME: ap-security
+  _CLUSTER_NAME: ap-security-demo
   _REPO_NAME: gke-demos
