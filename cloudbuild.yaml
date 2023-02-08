@@ -24,24 +24,28 @@ steps:
       - --filename=manifests/ping-demo-default.yaml
       - --image=us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA
       - --cluster=${_CLUSTER_NAME}
+      - --location=$LOCATION
   - name: "gcr.io/cloud-builders/gke-deploy"
     args:
       - run
       - --filename=manifests/ping-demo-balanced.yaml
       - --image=us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA
       - --cluster=${_CLUSTER_NAME}
+      - --location=$LOCATION
   - name: "gcr.io/cloud-builders/gke-deploy"
     args:
       - run
       - --filename=manifests/ping-demo-scale-out-amd64.yaml
       - --image=us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA
       - --cluster=${_CLUSTER_NAME}
+      - --location=$LOCATION
   - name: "gcr.io/cloud-builders/gke-deploy"
     args:
       - run
       - --filename=manifests/ping-demo-scale-out-arm.yaml
       - --image=us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA
       - --cluster=${_CLUSTER_NAME}
+      - --location=$LOCATION
 substitutions:
   _CLUSTER_NAME: ap-security
   _REPO_NAME: gke-demos
