@@ -13,9 +13,9 @@ steps:
       - '--platform'
       - 'linux/arm64,linux/amd64'
       - '-t'
-      - 'us-docker.pkg.dev/gari-test/cloudonair/ping-demo:$SHORT_SHA'
+      - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA'
       - '-t'
-      - 'us-docker.pkg.dev/gari-test/cloudonair/ping-demo:latest'
+      - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:latest'
       - '--push'
       - '.'
   - name: "gcr.io/cloud-builders/gke-deploy"
