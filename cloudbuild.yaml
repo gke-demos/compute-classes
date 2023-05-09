@@ -1,12 +1,12 @@
 steps:
-  - name: 'docker'
+  - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'buildx'
       - 'create'
       - '--name'
       - 'mybuilder'
       - '--use'
-  - name: 'docker'
+  - name: 'gcr.io/cloud-builders/docker'
     args: 
       - 'buildx'
       - 'build'
@@ -17,7 +17,7 @@ steps:
       - '-t'
       - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:latest'
       - '.'
-  - name: 'docker'
+  - name: 'gcr.io/cloud-builders/docker'
     args: 
       - 'images'
 images:
