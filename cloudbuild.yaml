@@ -16,36 +16,10 @@ steps:
       - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA'
       - '-t'
       - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:latest'
-      - '--push'
       - '.'
-  - name: "gcr.io/cloud-builders/gke-deploy"
-    args:
-      - run
-      - --filename=manifests/ping-demo-default.yaml
-      - --image=us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA
-      - --cluster=${_CLUSTER_NAME}
-      - --location=$LOCATION
-  - name: "gcr.io/cloud-builders/gke-deploy"
-    args:
-      - run
-      - --filename=manifests/ping-demo-balanced.yaml
-      - --image=us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA
-      - --cluster=${_CLUSTER_NAME}
-      - --location=$LOCATION
-  - name: "gcr.io/cloud-builders/gke-deploy"
-    args:
-      - run
-      - --filename=manifests/ping-demo-scale-out-amd64.yaml
-      - --image=us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA
-      - --cluster=${_CLUSTER_NAME}
-      - --location=$LOCATION
-  - name: "gcr.io/cloud-builders/gke-deploy"
-    args:
-      - run
-      - --filename=manifests/ping-demo-scale-out-arm.yaml
-      - --image=us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA
-      - --cluster=${_CLUSTER_NAME}
-      - --location=$LOCATION
+images:
+  - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA'
+  - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:latest'  
 options:
   requestedVerifyOption: VERIFIED
 substitutions:
