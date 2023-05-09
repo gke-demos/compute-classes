@@ -46,6 +46,8 @@ steps:
       - --image=us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA
       - --cluster=${_CLUSTER_NAME}
       - --location=$LOCATION
+options:
+  requestedVerifyOption: VERIFIED
 substitutions:
   _CLUSTER_NAME: ap-security-demo
   _REPO_NAME: gke-demos
