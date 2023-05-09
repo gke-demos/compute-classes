@@ -17,11 +17,16 @@ steps:
       - '-t'
       - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:latest'
       - '.'
+  - name: 'bash'
+    script: |
+      #!/usr/bin/env bash
+      echo "Docker Images"
+      docker images
 images:
   - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA'
   - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:latest'  
 options:
-  requestedVerifyOption: VERIFIED
+  requestedVerifyOption: 'VERIFIED'
 substitutions:
   _CLUSTER_NAME: ap-security-demo
   _REPO_NAME: gke-demos
