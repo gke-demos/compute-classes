@@ -19,6 +19,7 @@ var pingCounter = prometheus.NewCounter(
 
 func ping(w http.ResponseWriter, req *http.Request) {
 	pingCounter.Inc()
+	log.Printf("Handling request from %s", req.RemoteAddr)
 	fmt.Fprintf(w, "pong: "+runtime.GOARCH+"\n")
 }
 
@@ -27,8 +28,9 @@ func main() {
 
 	http.HandleFunc("/ping", ping)
 	http.Handle("/metrics", promhttp.Handler())
-	fmt.Printf("Starting server at port 8080\n")
+	log.Print("Starting server at port 8080")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
 	}
+	log.Print("Server running on port 8080")
 }
