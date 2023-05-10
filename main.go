@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"runtime"
 
 	"github.com/prometheus/client_golang/prometheus"
@@ -24,6 +25,8 @@ func ping(w http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
+	log.SetOutput(os.Stdout)
+
 	prometheus.MustRegister(pingCounter)
 
 	http.HandleFunc("/ping", ping)
