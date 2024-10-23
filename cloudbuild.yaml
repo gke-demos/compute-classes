@@ -16,7 +16,6 @@ steps:
       - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA'
       - '-t'
       - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:latest'
-      - '--load'
       - '.'
 images:
   - us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA
