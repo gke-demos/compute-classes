@@ -18,5 +18,5 @@ spec:
         cloud.google.com/compute-class: Scale-Out
         kubernetes.io/arch: arm64
       containers:
-      - image: us-docker.pkg.dev/gke-demos-345619/compute-classes/ping-demo@sha256:118fbf48b910029b92c2f9901e7ccf014591c555ed7c567a8058d66500b088f3
+      - image: us-docker.pkg.dev/gke-demos-345619/compute-classes/ping-demo@sha256:906429f2af2834e53c0ca3876033045905cde60c19fff532bae457cb5f1e1e86
         name: ping-demo-arm64
