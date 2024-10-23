@@ -14,9 +14,17 @@ steps:
       - 'linux/arm64,linux/amd64'
       - '-t'
       - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA'
-      - '-t'
-      - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:latest'
+      - '--push'
       - '.'
+  - name: 'docker'
+    args: 
+      - 'pull'
+      - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA'
+  - name: 'docker'
+    args: 
+      - 'tag'
+      - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA'
+      - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:latest'
 images:
   - us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA
   - us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:latest
