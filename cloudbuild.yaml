@@ -26,6 +26,18 @@ steps:
       - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:arm-$SHORT_SHA'
       - '--load'
       - '.'
+  - name: 'docker'
+    args: 
+      - 'manifest'
+      - 'create'
+      - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA'
+      - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:amd-$SHORT_SHA'
+      - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:arm-$SHORT_SHA'
+  - name: 'docker'
+    args: 
+      - 'manifest'
+      - 'push'
+      - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA'
 images:
   - us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:amd-$SHORT_SHA
   - us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:arm-$SHORT_SHA
