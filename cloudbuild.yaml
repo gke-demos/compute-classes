@@ -39,8 +39,8 @@ steps:
       - 'manifest'
       - 'create'
       - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:$SHORT_SHA'
-      - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:amd-$SHORT_SHA'
-      - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:arm-$SHORT_SHA'
+      - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:amd64-$SHORT_SHA'
+      - 'us-docker.pkg.dev/$PROJECT_ID/${_REPO_NAME}/ping-demo:arm64-$SHORT_SHA'
   - name: 'docker'
     args: 
       - 'manifest'
