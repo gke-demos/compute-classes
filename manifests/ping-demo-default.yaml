@@ -15,7 +15,7 @@ spec:
         app: ping-demo
     spec:
       containers:
-      - image: us-docker.pkg.dev/gke-demos-345619/compute-classes/ping-demo@sha256:6e757daccc68453d1f5837fa625172f7a059a72e70306af835124b175df7fb55
+      - image: us-docker.pkg.dev/gke-demos-345619/compute-classes/ping-demo@sha256:8e6715a38fe2c790b9829c57e0a16e8d997d01245013e9dffa31957d7e728b1d
         name: ping-demo-default
         resources:
           requests:
